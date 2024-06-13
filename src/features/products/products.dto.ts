@@ -1,11 +1,17 @@
 export class Product {
-  id: string;
+  id?: string;
   name: string;
+  description: string;
   price: number;
+  stock: number;
+  image: string;
 }
 
 export class ProductUpdated {
-  id: string;
+  id?: string;
   name?: string;
+  description?: string;
   price?: number;
+  stock?: number;
+  image?: string;
 }
