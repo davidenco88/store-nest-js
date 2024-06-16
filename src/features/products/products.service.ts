@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Product, ProductUpdated } from './products.dto';
+import { Product, ProductCreate, ProductUpdated } from './products.dto';
 import { randomUUID } from 'crypto';
 
 @Injectable()
@@ -29,14 +29,12 @@ export class ProductsService {
     return product;
   }
 
-  //Pendiente la validación del Payload
-  create(product: Product): Product {
+  create(product: ProductCreate): Product {
     const newId: string = randomUUID().toString();
     this.products.push({ ...product, id: newId });
     return this.getById(newId);
   }
 
-  //Pendiente la validación del Payload
   update(id: string, payload: ProductUpdated): Product {
     const index = this.products.findIndex((item) => item.id === id);
 

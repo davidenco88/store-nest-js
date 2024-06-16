@@ -7,7 +7,7 @@ import {
   IsOptional,
 } from 'class-validator';
 
-import { PartialType } from '@nestjs/mapped-types';
+import { PartialType, OmitType } from '@nestjs/mapped-types';
 
 export class Product {
   @IsString()
@@ -39,4 +39,5 @@ export class Product {
   readonly image: string;
 }
 
-export class ProductUpdated extends PartialType(Product) {}
+export class ProductCreate extends OmitType(Product, ['id']) {}
+export class ProductUpdated extends PartialType(ProductCreate) {}
