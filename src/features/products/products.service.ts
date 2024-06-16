@@ -46,7 +46,7 @@ export class ProductsService {
     return this.getById(id);
   }
 
-  deleteById(id: string): { isDelted: boolean; message: string } {
+  deleteById(id: string): { isDeleted: boolean; message: string } {
     const index = this.products.findIndex((item) => item.id === id);
 
     if (index === -1) {
@@ -54,6 +54,9 @@ export class ProductsService {
     }
 
     this.products.splice(index, 1);
-    return { isDelted: true, message: `Product ${id} was deleted succesfully` };
+    return {
+      isDeleted: true,
+      message: `Product ${id} was deleted succesfully`,
+    };
   }
 }
